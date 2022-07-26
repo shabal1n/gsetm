@@ -59,6 +59,7 @@ body {
     width: 100%;
     padding: 1%;
     display: flex;
+    border-top: 4px solid #979797;
 }
 
 .footer_items_container {
@@ -90,29 +91,36 @@ body {
     .logo_container {
         width: 25%;
     }
+
     .header {
         text-align: center;
         flex-direction: column;
         align-items: center;
     }
+
     .single_button {
         text-transform: capitalize;
     }
+
     .buttons {
         margin-block: 2%;
         width: 100%;
     }
+
     .contacts {
         width: auto;
     }
+
     .footer {
         flex-direction: column;
         align-items: center;
     }
+
     .footer_items_container {
         width: 100%;
         margin: auto;
     }
+
     .footer_item {
         font-size: 2.5vw;
     }
