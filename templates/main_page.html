@@ -1,0 +1,41 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
+    <div class="beginning">
+        <div class="text_container">
+            <div class="big_text">
+                <h1>дизельные</h1>
+                <h1>генераторы</h1>
+                <h2>от Genset Machinery</h2>
+            </div>
+        </div>
+
+        <div class="beginning_halves">
+            <div class="half_text">
+                <p>В наличии более 25 моделей</p>
+                <p>Доставка в любую точку Казахстана</p>
+                <p>Сервисное обслуживание и ремонт</p>
+            </div>
+            <div class="half_text">
+                <div class="button_red">
+                    <p>Каталог</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about_us">
+        <div class="transparent_header">
+            <h1>о нас</h1>
+            <h2>о нас</h2>
+        </div>
+        <div class="about_us_image">
+            <img src="{% static 'images/about_us.png' %}" alt="About us"/>
+        </div>
+    </div>
+
+    <div class="our_advantages">
+
+    </div>
+{% endblock %}

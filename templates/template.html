@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo_container">
+            <img src="{% static 'images/logo.png' %}" class="logo" alt="Logo">
+        </div>
+        <div class="buttons">
+            <button class="single_button">Главная</button>
+            <button class="single_button">О компании</button>
+            <button class="single_button">Генераторы</button>
+            <button class="single_button">Аренда</button>
+            <button class="single_button">Контакты</button>
+        </div>
+        <div class="contacts">
+            <a href="mailto:generatorco@gmail.com" id="single_contact">generatorco@gmail.com</a>
+            <a href="tel:+77772005442" id="single_contact">+7 777 200 54 42</a>
+        </div>
+    </div>
+
+    {% block content %}
+        <p>Default value</p>
+    {% endblock %}
+
+    <div class="footer">
+        <div class="logo_container">
+            <img src="{% static 'images/logo_white.png' %}" class="logo" alt="Logo">
+        </div>
+        <div class="footer_items_container">
+            <div class="footer_item">
+                <h4>о компании</h4>
+                <p>Компания Genset Machinery устанавливает дизельные генераторы в Алматы и в любой точке Казахстана под ключ. 
+                    Наши клиенты используют их для непрерывной подачи электроэнергии на производство, в государственные предприятия и учреждения, в частные дома в качестве основного или резервного источника питания.</p>
+            </div>
+            <div class="footer_item">
+                <h4>контакты</h4>
+                <p>г. Алматы, микрорайон Тастыбулак, с/т Алмалы, д.76/1</p>
+                <p>+7 (777) 200 54 42</p>
+                <p>generatorco@gmail.com</p>
+            </div>
+            <div class="footer_item">
+                <h4>карта сайта</h4>
+                <a>>Главная</a>
+                <a>>Генераторы</a>
+                <a>>О компании</a>
+                <a>>Аренда</a>
+                <a>>Контакты</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

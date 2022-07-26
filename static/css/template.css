@@ -1,0 +1,119 @@
+@font-face {
+    font-family: SFProDisplay-Bold;
+    src: url(../fonts/SFProDisplayBold.ttf);
+}
+
+@font-face {
+    font-family: SFProDisplay-Medium;
+    src: url(../fonts/SFProDisplayMedium.ttf);
+}
+
+body {
+    background: #292929;
+}
+
+.header {
+
+    display: flex;
+    padding: 1%;
+}
+
+.logo_container {
+    width: 14%;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.buttons {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 71%;
+}
+
+.single_button {
+    color: #FFFFFF;
+    font-family: SFProDisplay-Bold, sans-serif;
+    background-color: transparent;
+    text-transform: uppercase;
+    border: none;
+    margin: auto;
+}
+
+.contacts {
+    display: grid;
+    width: 15%;
+}
+
+#single_contact {
+    color: #FFFFFF;
+    font-family: SFProDisplay-Medium, sans-serif;
+    text-decoration: none;
+}
+
+.footer {
+    width: 100%;
+    padding: 1%;
+    display: flex;
+}
+
+.footer_items_container {
+    width: 75%;
+    padding: 2%;
+    display: flex;
+    margin: auto;
+}
+
+.footer_item {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    width: 33%;
+}
+
+.footer_item h4 {
+    font-family: SFProDisplay-Bold, sans-serif;
+    text-transform: uppercase;
+}
+
+.footer_item p {
+    font-family: SFProDisplay-Medium, sans-serif;
+    width: 70%;
+    word-break: normal;
+}
+
+@media (max-width: 650px) {
+    .logo_container {
+        width: 25%;
+    }
+    .header {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .single_button {
+        text-transform: capitalize;
+    }
+    .buttons {
+        margin-block: 2%;
+        width: 100%;
+    }
+    .contacts {
+        width: auto;
+    }
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer_items_container {
+        width: 100%;
+        margin: auto;
+    }
+    .footer_item {
+        font-size: 2.5vw;
+    }
+}
