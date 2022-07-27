@@ -13,7 +13,6 @@ body {
 }
 
 .header {
-
     display: flex;
     padding: 1%;
 }
@@ -38,8 +37,11 @@ body {
 .single_button {
     color: #FFFFFF;
     font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 1.3vw;
     background-color: transparent;
     text-transform: uppercase;
+    text-decoration: none;
+    -webkit-text-decoration-line: none;
     border: none;
     margin: auto;
 }
@@ -76,6 +78,11 @@ body {
     width: 33%;
 }
 
+.footer_item a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 .footer_item h4 {
     font-family: SFProDisplay-Bold, sans-serif;
     text-transform: uppercase;
@@ -100,6 +107,7 @@ body {
 
     .single_button {
         text-transform: capitalize;
+        font-size: 3vw;
     }
 
     .buttons {

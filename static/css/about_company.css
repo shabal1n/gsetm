@@ -1,0 +1,243 @@
+body {
+    max-height: 400vh;
+    height: auto;
+}
+
+.beginning {
+    background-image: url("../images/about_company_background.png");
+    width: 100%;
+    height: 11%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 4%;
+}
+
+.big_text {
+    text-align: center;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 2%;
+}
+
+.big_text h1 {
+    text-transform: uppercase;
+    font-size: 4vw;
+    font-family: SFProDisplay-Bold, sans-serif;
+    color: #FFFFFF;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.big_text h2 {
+    font-family: SFProDisplay-Medium, sans-serif;
+    font-size: 2vw;
+    color: #FFFFFF;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 50%;
+}
+
+.button_red {
+    background-color: #991616;
+    border-radius: 54px;
+    width: 27%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.button_red p {
+    color: #FFFFFF;
+    font-family: SFProDisplay-Bold, sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5vw;
+}
+
+.transparent_header {
+    width: 100%;
+    margin-block: 2%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.transparent_header h1 {
+    width: 100%;
+    font-family: SFProDisplay-Bold, sans-serif;
+    text-transform: uppercase;
+    font-size: 8vw;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 237, 0, 0.25);
+    margin: 0;
+}
+
+.transparent_header h2 {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    font-family: SFProDisplay-Bold, sans-serif;
+    text-transform: uppercase;
+    font-size: 6vw;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.circled_points {
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    gap: 0;
+    justify-content: center;
+    z-index: -1;
+    position: relative;
+    padding-block: 6%;
+}
+
+.circled_points p {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 2vw;
+    color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.circled_points img {
+    border: 3px solid rgba(255, 237, 0, 0.6);
+    margin: 0;
+}
+
+#last_point {
+    width: 100%;
+    color: #FFFFFF;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    grid-column: 1 / -1;
+}
+
+#last_point h2 {
+    width: 34%;
+    font-size: 2vw;
+    font-family: SFProDisplay-Bold, sans-serif;
+}
+
+#circle {
+    width: 40%;
+    height: 75%;
+    border: 2px dashed #FFB900;
+    border-radius: 6%;
+    z-index: -2;
+    left: 20%;
+    top: 4%;
+    position: absolute;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+}
+
+.rectangles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.dashed_rectangle {
+    width: 50%;
+    border-radius: 1%;
+    border: 1px dashed #FFB900;
+    text-align: center;
+    line-height: 400%;
+    padding-block: 4%;
+}
+
+.dashed_rectangle p {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 1.5vw;
+    color: #FFFFFF;
+    margin-left: 4%;
+}
+
+.our_clients {
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+}
+
+.our_clients u {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 3vw;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-decoration-color: rgba(255, 185, 0, 1);
+}
+
+.clients {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-block: 2%;
+}
+
+.clients img {
+    width: 13%;
+    margin-inline: auto;
+}
+
+@media (max-width: 650px) {
+    body {
+        min-height: 100vh;
+        max-height: 250vh;
+        height: auto;
+    }
+
+    .beginning {
+        height: 8%;
+    }
+
+    .dashed_rectangle {
+        line-height: 200%;
+    }
+
+    .dashed_rectangle p {
+        font-size: 3vw;
+    }
+
+    .big_text h1 {
+        font-size: 4vw;
+    }
+
+    .big_text h2 {
+        font-size: 3vw;
+    }
+
+    .circled_points {
+        width: 100%;
+        gap: 0;
+        justify-items: center;
+        z-index: -1;
+        position: relative;
+    }
+
+    .circled_points img {
+        width: 80%;
+    }
+
+    .circled_points p {
+        width: min-content;
+        font-size: 2.7vw;
+    }
+
+    #last_point h2 {
+        font-size: 2.7vw;
+    }
+}

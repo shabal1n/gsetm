@@ -1,5 +1,6 @@
 body {
-    height: 500vh;
+    max-height: 500vh;
+    height: auto;
 }
 
 .beginning {
@@ -237,6 +238,7 @@ body {
     body {
         min-height: 100vh;
         max-height: 250vh;
+        height: auto;
     }
     .beginning {
         height: 8%;
