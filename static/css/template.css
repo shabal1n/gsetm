@@ -8,6 +8,11 @@
     src: url(../fonts/SFProDisplayMedium.ttf);
 }
 
+@font-face {
+    font-family: SFProDisplay-Light;
+    src: url(../fonts/SFProDisplayLight.ttf);
+}
+
 body {
     background: #292929;
 }
@@ -41,9 +46,13 @@ body {
     background-color: transparent;
     text-transform: uppercase;
     text-decoration: none;
-    -webkit-text-decoration-line: none;
     border: none;
     margin: auto;
+}
+
+.single_button:hover, .single_button:active {
+    color: #991616;
+    text-decoration: none;
 }
 
 .contacts {
@@ -94,6 +103,40 @@ body {
     word-break: normal;
 }
 
+.dropdown {
+    display: inline-block;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+    background-color: #292929;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    font-family: SFProDisplay-Medium, sans-serif;
+    text-transform: uppercase;
+    display: block;
+    color: #FFFFFF;
+    padding: 5%;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover, .dropdown-content a:active {
+    color: #991616;
+}
+
 @media (max-width: 650px) {
     .logo_container {
         width: 25%;
@@ -130,6 +173,10 @@ body {
     }
 
     .footer_item {
+        font-size: 2.5vw;
+    }
+
+    .dropdown-content a {
         font-size: 2.5vw;
     }
 }

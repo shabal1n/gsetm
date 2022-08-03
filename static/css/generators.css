@@ -1,0 +1,111 @@
+.head_image {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.centered_big_text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 4%;
+}
+
+.centered_big_text h1 {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 4vw;
+    color: #FFFFFF;
+    width: 100%;
+    margin: 0;
+}
+
+.generators {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.single_generator {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed #FFFFFF;
+    border-radius: 1%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    margin-inline: auto;
+}
+
+.image_container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image_container img {
+    max-width: 90%;
+    width: 90%;
+    object-fit: contain;
+    height: auto;
+}
+
+.generator_description {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+}
+
+.generator_description h1 {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 2.5vw;
+    color: #FFFFFF;
+    margin-bottom: 1%;
+}
+
+.generator_description h5 {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 1vw;
+    color: #FFFFFF;
+    margin-block: 1%;
+}
+
+.generator_description h4 {
+    margin-top: 4%;
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 1.2vw;
+    color: #FFFFFF;
+}
+
+.button_container {
+    width: 90%;
+    padding-block: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_red {
+    text-align: center;
+    background-color: #991616;
+    height: 90%;
+    width: 90%;
+    border-radius: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_red a {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 1.5vw;
+    color: #FFFFFF;
+    padding: 5%;
+    text-decoration: none;
+}

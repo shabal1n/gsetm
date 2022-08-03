@@ -1,0 +1,36 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/generators.css' %}">
+    <div class="head_image">
+        <img class="head_image" src="{% static 'images/head_image_generators.png' %}" alt="Head image"/>
+    </div>
+
+    <div class="centered_big_text">
+        <h1>АССОРТИМЕНТ</h1>
+        <h1>ГЕНЕРАТОРОВ</h1>
+    </div>
+
+    <div class="generators">
+        {% for alternator in alternators %}
+            <div class="single_generator">
+                <div class="image_container">
+                    <img src="{{ alternator.generator.image.url }}" alt="Generator"/>
+                </div>
+                <div class="generator_description">
+                    <h1>{{ alternator.generator.title }}</h1>
+                    <h5>Мощность станции: {{ alternator.generator.power }} кВа</h5>
+                    <h5>Резервная мощность: {{ alternator.generator.max_power }} кВа</h5>
+                    <h5>Марка двигателя: {{ alternator.generator.engine_name }}</h5>
+                    <h5>Марка альтернатора: {{ alternator.manufacturer }}</h5>
+                    <h4>ЦЕНА: {{ alternator.generator.get_price_KZT }} KZT</h4>
+                </div>
+                <div class="button_container">
+                    <div class="button_red">
+                        <a href="generator/{{ alternator.generator.id }}">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -5,6 +5,7 @@ body {
 
 .beginning {
     background-image: url("../images/about_company_background.png");
+    background-repeat: no-repeat;
     width: 100%;
     height: 11%;
     display: flex;

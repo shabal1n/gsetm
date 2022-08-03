@@ -49,11 +49,9 @@
     <div class="our_clients">
         <u>наши клиенты</u>
         <div class="clients">
-            <img src="{% static 'images/client1.png' %}" alt="Client 1"/>
-            <img src="{% static 'images/client2.png' %}" alt="Client 2"/>
-            <img src="{% static 'images/client3.png' %}" alt="Client 3"/>
-            <img src="{% static 'images/client4.png' %}" alt="Client 4"/>
-            <img src="{% static 'images/client5.png' %}" alt="Client 5"/>
+            {% for client in clients %}
+                <img src="{{ client.image.url }}" alt="{{ client.title }}"/>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
