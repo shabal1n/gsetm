@@ -23,7 +23,8 @@
                     <ol class="carousel-indicators">
                         {% for i in range %}
                             {% if forloop.first %}
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"
+                                    class="active"></li>
                             {% else %}
                                 <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"></li>
                             {% endif %}
@@ -52,6 +53,11 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                    {% if generator.ask_for_price %}
+                        <h4>ЦЕНУ УТОЧНЯЙТЕ</h4>
+                    {% else %}
+                        <h4>ЦЕНА: {{ generator.get_price_KZT }} KZT</h4>
+                    {% endif %}
                 </div>
             </div>
 

@@ -115,6 +115,7 @@ class Generator(models.Model):
     voltage = models.CharField(max_length=15, verbose_name='Напряжение', blank=True, null=True)
     power = models.FloatField(max_length=7, verbose_name='Мощность, кВт', blank=True, null=True)
 
+    ask_for_price = models.BooleanField(verbose_name='Цену уточняйте', default=False)
     price = models.FloatField(verbose_name='Цена, USD', blank=True, null=True)
 
     execution = models.ForeignKey(Execution, on_delete=models.CASCADE, verbose_name='Исполнение')

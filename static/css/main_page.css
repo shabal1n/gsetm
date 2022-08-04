@@ -110,7 +110,7 @@ body {
 
 .transparent_header h2 {
     position: absolute;
-    z-index:100;
+    z-index: 1;
     width: 100%;
     font-family: SFProDisplay-Bold, sans-serif;
     text-transform: uppercase;
@@ -242,6 +242,7 @@ body {
         max-height: 250vh;
         height: auto;
     }
+
     .beginning {
         height: 8%;
     }

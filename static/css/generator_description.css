@@ -124,6 +124,13 @@ hr {
     height: 80%;
 }
 
+#carouselExampleIndicators h4 {
+    color: #FFFFFF;
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 2vw;
+    text-align: center;
+}
+
 .carousel-item {
     height: 100%;
 }

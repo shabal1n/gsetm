@@ -23,7 +23,11 @@
                     <h5>Резервная мощность: {{ alternator.generator.max_power }} кВа</h5>
                     <h5>Марка двигателя: {{ alternator.generator.engine_name }}</h5>
                     <h5>Марка альтернатора: {{ alternator.manufacturer }}</h5>
-                    <h4>ЦЕНА: {{ alternator.generator.get_price_KZT }} KZT</h4>
+                    {% if alternator.generator.ask_for_price %}
+                        <h4>ЦЕНУ УТОЧНЯЙТЕ</h4>
+                    {% else %}
+                        <h4>ЦЕНА: {{ alternator.generator.get_price_KZT }} KZT</h4>
+                    {% endif %}
                 </div>
                 <div class="button_container">
                     <div class="button_red">

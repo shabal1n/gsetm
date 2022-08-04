@@ -79,7 +79,7 @@ body {
 
 .transparent_header h2 {
     position: absolute;
-    z-index: 100;
+    z-index: 1;
     width: 100%;
     font-family: SFProDisplay-Bold, sans-serif;
     text-transform: uppercase;
@@ -90,13 +90,14 @@ body {
 
 .rent_advantages {
     width: 100%;
+    min-height: 60%;
     display: flex;
     padding-bottom: 5%;
 }
 
 .single_advantage {
     width: 27%;
-    height: 350px;
+    height: 50vh;
     margin-inline: 3%;
     border-radius: 50%;
     border: 2px dashed rgba(255, 185, 0, 0.82);
@@ -109,15 +110,58 @@ body {
 
 .single_advantage img {
     max-width: 20%;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 .single_advantage h1 {
     padding-inline: 13%;
-    margin-top: 5%;
+    margin-top: 4%;
     font-family: SFProDisplay-Bold, sans-serif;
     color: #FFFFFF;
     text-transform: uppercase;
     word-break: normal;
-    font-size: 1.8vw;
+    font-size: 1.7vw;
+}
+
+.rent_stock_container {
+    width: 100%;
+    padding-block: 5%;
+    text-align: center;
+}
+
+.rent_stock_container h1 {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 2vw;
+    color: #FFFFFF;
+}
+
+.rent_stock_container h2 {
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 1.2vw;
+    color: #FFFFFF;
+}
+
+.rent_image {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: -2;
+    margin-bottom: 5%;
+}
+
+.rent_image img {
+    border: 3px solid #FFB900;
+    max-width: 30%;
+}
+
+.border_dash {
+    width: 30%;
+    border: 1px dashed #FFFFFF;
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    top: 5%;
+    left: 37%;
+    border-radius: 1%;
 }

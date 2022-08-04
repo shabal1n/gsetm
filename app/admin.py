@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
 
+admin.site.site_header = 'Genset Machinery'
+
 
 class HideModel(admin.ModelAdmin):
     def get_model_perms(self, request):
