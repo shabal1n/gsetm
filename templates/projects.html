@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+    <div class="head_image">
+        <img class="head_image" src="{% static 'images/head_image_generators.png' %}" alt="Head image"/>
+    </div>
+
+    <div class="transparent_header">
+        <h1>наши проекты</h1>
+        <h2>наши проекты</h2>
+    </div>
+
+    <div class="projects_flexbox">
+        {% for project in projects %}
+            <div class="single_project">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}"/>
+                <p>{{ project.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

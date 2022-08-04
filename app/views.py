@@ -32,3 +32,19 @@ def generator_description(request, gen_id):
     return render(request, 'generator_description.html',
                   {'categories': generators_categories, 'generator': generator, 'images': images, 'engine': engine,
                    'alternator': alternator, 'params': generator_parameters, 'range': range(len(images))})
+
+
+def rent(request):
+    generators_categories = GeneratorCategory.objects.all()
+    return render(request, 'rent.html', {'categories': generators_categories})
+
+
+def projects(request):
+    generators_categories = GeneratorCategory.objects.all()
+    projects2 = Project.objects.all()
+    return render(request, 'projects.html', {'categories': generators_categories, 'projects': projects2})
+
+
+def contacts(request):
+    generators_categories = GeneratorCategory.objects.all()
+    return render(request, 'rent.html', {'categories': generators_categories})

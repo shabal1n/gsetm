@@ -132,3 +132,21 @@ hr {
     height: 100%;
     padding: 20%;
 }
+
+@media (max-width: 650px) {
+    .single_text_container h1 {
+        font-size: 2vw;
+    }
+
+    .single_text_container h2 {
+        font-size: 1.7vw;
+    }
+
+    #carouselExampleIndicators {
+        width: 100%;
+    }
+
+    .yellow_square h1 {
+        margin-block: auto;
+    }
+}

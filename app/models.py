@@ -1,8 +1,4 @@
-import math
-
 from django.db import models
-import requests
-import json
 
 
 class Client(models.Model):
@@ -20,7 +16,7 @@ class Client(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=50, verbose_name='название', blank=True, null=True)
     image = models.ImageField(null=True, blank=True, verbose_name='картинка', upload_to='our_projects')
-    description = models.CharField(max_length=120, verbose_name='описание', blank=True, null=True)
+    description = models.TextField(max_length=140, verbose_name='описание', blank=True, null=True)
 
     def __str__(self):
         return self.title

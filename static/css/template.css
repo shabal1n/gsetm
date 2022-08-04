@@ -150,7 +150,7 @@ body {
 
     .single_button {
         text-transform: capitalize;
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
 
     .buttons {
@@ -160,6 +160,7 @@ body {
 
     .contacts {
         width: auto;
+        font-size: 3vw;
     }
 
     .footer {

@@ -5,7 +5,7 @@
     {% block imports %}{% endblock %}
     <link rel="stylesheet" href="{% static 'css/template.css' %}">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+    <title>{{ request.resolver_match.url_name }}</title>
 </head>
 <body>
 <div class="header">
@@ -24,8 +24,9 @@
                 {% endfor %}
             </div>
         </div>
-        <a class="single_button">Аренда</a>
-        <a class="single_button">Контакты</a>
+        <a href="/rent" class="single_button">Аренда</a>
+        <a href="/projects" class="single_button">Наши проекты</a>
+        <a href="/contacts" class="single_button">Контакты</a>
     </div>
     <div class="contacts">
         <a href="mailto:generatorco@gmail.com" id="single_contact">generatorco@gmail.com</a>
@@ -58,8 +59,8 @@
         <div class="footer_item">
             <h4>карта сайта</h4>
             <a href="/">> Главная</a>
-            <a href="generators">> Генераторы</a>
-            <a href="about">> О компании</a>
+            <a href="/generators">> Генераторы</a>
+            <a href="/about">> О компании</a>
             <a>> Аренда</a>
             <a>> Контакты</a>
         </div>
