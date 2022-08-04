@@ -4,10 +4,10 @@ from .models import *
 
 def main_page(request):
     generators_categories = GeneratorCategory.objects.all()
-    clients = Client.objects.all()
-    projects = Project.objects.all()
+    clients = Client.objects.all()[:5]
+    projects_list = Project.objects.all()[:3]
     return render(request, 'main_page.html',
-                  {'categories': generators_categories, 'clients': clients, 'projects': projects})
+                  {'categories': generators_categories, 'clients': clients, 'projects': projects_list})
 
 
 def about_company(request):
@@ -47,4 +47,4 @@ def projects(request):
 
 def contacts(request):
     generators_categories = GeneratorCategory.objects.all()
-    return render(request, 'rent.html', {'categories': generators_categories})
+    return render(request, 'contacts.html', {'categories': generators_categories})

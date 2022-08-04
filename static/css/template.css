@@ -85,6 +85,7 @@ body {
     flex-direction: column;
     color: #FFFFFF;
     width: 33%;
+    margin-inline: auto;
 }
 
 .footer_item a {
@@ -92,16 +93,20 @@ body {
     color: #FFFFFF;
 }
 
+.links {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: SFProDisplay-Medium, sans-serif;
+    width: 66%;
+    word-break: normal;
+    margin-bottom: 5%;
+}
+
 .footer_item h4 {
     font-family: SFProDisplay-Bold, sans-serif;
     text-transform: uppercase;
 }
 
-.footer_item p {
-    font-family: SFProDisplay-Medium, sans-serif;
-    width: 70%;
-    word-break: normal;
-}
 
 .dropdown {
     display: inline-block;

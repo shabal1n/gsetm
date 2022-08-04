@@ -1,0 +1,52 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+    <div class="contacts_container">
+        <div class="transparent_header">
+            <h1>контактная информация</h1>
+        </div>
+        <div class="row_container">
+            <div class="items_container">
+                <div class="item_contact" style="margin-top: 0; margin-bottom: auto">
+                    <img src="{% static 'images/map_icon.png' %}">
+                    <a>г. Алматы, микрорайон Тастыбулак, с/т Алмалы, д.76/1</a>
+                </div>
+
+                <div class="item_contact" style="margin-bottom: 0; margin-top: auto">
+                    <img src="{% static 'images/phone_icon.png' %}">
+                    <a href="tel:+77772005442">+7 (777) 200 54 42</a>
+                </div>
+            </div>
+
+            <div class="map_container">
+                <img src="{% static 'images/map_image.png' %}">
+            </div>
+
+            <div class="items_container">
+                <div class="item_contact" style="margin-top: 0; margin-bottom: auto">
+                    <img src="{% static 'images/mail_icon.png' %}">
+                    <a href="mailto:generatorco@gmail.com">generatorco@gmail.com</a>
+                </div>
+                <div class="item_contact" style="margin-bottom: 0; margin-top: auto">
+                    <img src="{% static 'images/time_contacts_icon.png' %}">
+                    <a>Пн.-Пт.: с 09:00 до 18:00</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="transparent_header">
+        <h1>МЫ В СОЦИАЛЬНЫХ СЕТЯХ</h1>
+    </div>
+    <div class="social_media">
+        <div class="single_media">
+            <img src="{% static 'images/instagram_icon.png' %}">
+            <a href="https://www.instagram.com/gensetmachinery">@gensetmachinery</a>
+        </div>
+        <div class="single_media">
+            <img src="{% static 'images/tiktok_icon.png' %}">
+            <a href="https://www.tiktok.com/@gensetmachinery">@gensetmachinery</a>
+        </div>
+    </div>
+{% endblock %}

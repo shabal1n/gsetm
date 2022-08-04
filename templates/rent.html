@@ -1,4 +1,35 @@
 {% extends 'template.html' %}
 {% load static %}
 {% block content %}
+    <link rel="stylesheet" href="{% static 'css/rent.css' %}">
+    <div class="beginning">
+        <div class="big_text">
+            <h1>АРЕНДА</h1>
+            <h1>ГЕНЕРАТОРОВ</h1>
+            <h2>БЫСТРО, ВЫГОДНО И БЕЗОПАСНО</h2>
+        </div>
+        <div class="button_red">
+            <p>Связаться с нами</p>
+        </div>
+    </div>
+
+    <div class="transparent_header">
+        <h1>преимущества аренды</h1>
+        <h2>преимущества аренды</h2>
+    </div>
+
+    <div class="rent_advantages">
+        <div class="single_advantage" style="margin-top: 8%">
+            <img src="{% static 'images/money_icon.png' %}">
+            <h1>НЕТ НЕОБХОДИМОСТИ ПОКУПАТЬ ОБОРУДОВАНИЕ</h1>
+        </div>
+        <div class="single_advantage">
+            <img src="{% static 'images/fix_icon.png' %}">
+            <h1>МЫ ПРОИЗВОДИМ УСТАНОВКУ, РЕМОНТ И ТЕХ. ОБСЛУЖИВАНИЕ</h1>
+        </div>
+        <div class="single_advantage" style="margin-top: 8%">
+            <img src="{% static 'images/time_icon.png' %}">
+            <h1>В СЛУЧАЕ ПОЛОМКИ, ЗАМЕНИМ ГЕНЕРАТОР ВО ИЗБЕЖАНИЕ ПРОСТОЯ РАБОТЫ</h1>
+        </div>
+    </div>
 {% endblock %}
