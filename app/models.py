@@ -132,22 +132,6 @@ class Generator(models.Model):
     def __str__(self):
         return self.title + ' (' + self.execution.title + ")"
 
-    # @property
-    # def get_price_KZT(self):
-    #     url = "https://currency-exchange.p.rapidapi.com/exchange"
-    #
-    #     querystring = {"from": "USD", "to": "KZT", "q": "1.0"}
-    #
-    #     headers = {
-    #         "X-RapidAPI-Key": "16d1315cf5msheaa92765cffe447p1f31b5jsnbdf27d45f845",
-    #         "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com"
-    #     }
-    #
-    #     response = requests.request("GET", url, headers=headers, params=querystring)
-    #     exchange_rate = float(response.text)
-    #
-    #     return math.ceil(exchange_rate * self.price)
-
     class Meta:
         verbose_name = 'Генератор'
         verbose_name_plural = 'Генераторы'

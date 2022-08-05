@@ -56,7 +56,7 @@
                     {% if generator.ask_for_price %}
                         <h4>ЦЕНУ УТОЧНЯЙТЕ</h4>
                     {% else %}
-                        <h4>ЦЕНА: {{ generator.get_price_KZT }} KZT</h4>
+                        <h4>ЦЕНА: {% widthratio generator.price 1 course %} KZT</h4>
                     {% endif %}
                 </div>
             </div>

@@ -1,3 +1,6 @@
+import math
+
+import requests
 from django.shortcuts import render
 from .models import *
 
@@ -19,7 +22,9 @@ def about_company(request):
 def generators(request):
     generators_categories = GeneratorCategory.objects.all()
     alternators = Alternator.objects.all()
-    return render(request, 'generators.html', {'categories': generators_categories, 'alternators': alternators})
+    dollar_course = get_price_KZT()
+    return render(request, 'generators.html',
+                  {'categories': generators_categories, 'alternators': alternators, 'course': dollar_course})
 
 
 def generator_description(request, gen_id):
@@ -29,9 +34,11 @@ def generator_description(request, gen_id):
     engine = Engine.objects.get(generator_id=gen_id)
     alternator = Alternator.objects.get(generator_id=gen_id)
     generator_parameters = GeneratorParameters.objects.get(generator_id=gen_id)
+    dollar_course = get_price_KZT()
     return render(request, 'generator_description.html',
                   {'categories': generators_categories, 'generator': generator, 'images': images, 'engine': engine,
-                   'alternator': alternator, 'params': generator_parameters, 'range': range(len(images))})
+                   'alternator': alternator, 'params': generator_parameters, 'range': range(len(images)),
+                   'course': dollar_course})
 
 
 def rent(request):
@@ -48,3 +55,19 @@ def projects(request):
 def contacts(request):
     generators_categories = GeneratorCategory.objects.all()
     return render(request, 'contacts.html', {'categories': generators_categories})
+
+
+def get_price_KZT():
+    url = "https://currency-exchange.p.rapidapi.com/exchange"
+
+    querystring = {"from": "USD", "to": "KZT", "q": "1.0"}
+
+    headers = {
+        "X-RapidAPI-Key": "16d1315cf5msheaa92765cffe447p1f31b5jsnbdf27d45f845",
+        "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    exchange_rate = float(response.text)
+
+    return math.ceil(exchange_rate)
