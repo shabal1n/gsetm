@@ -5,6 +5,7 @@ body {
 
 .beginning {
     background-image: url("../images/main_page_background.png");
+    background-size: cover;
     width: 100%;
     height: fit-content;
     padding-block: 5%;

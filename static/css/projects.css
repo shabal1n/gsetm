@@ -52,8 +52,19 @@
     font-family: SFProDisplay-Medium, sans-serif;
     color: #FFFFFF;
     text-align: center;
+    font-size: 1.2vw;
 }
 
 .single_project img {
     border: 4px solid rgba(255, 237, 0, 0.4);
+}
+
+@media (max-width: 650px) {
+    .single_project p {
+        font-size: 1.6vw;
+    }
+
+    .single_project img {
+        border: 2px solid rgba(255, 237, 0, 0.4);
+    }
 }

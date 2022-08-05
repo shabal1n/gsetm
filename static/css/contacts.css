@@ -53,6 +53,7 @@
 .item_contact a {
     color: #FFFFFF;
     font-family: SFProDisplay-Bold, sans-serif;
+    font-size: 1.1vw;
     text-decoration: none;
     margin-top: 30%;
 }
@@ -60,6 +61,7 @@
 .item_contact img {
     max-width: 25%;
     max-height: 25%;
+    margin-top: 0;
 }
 
 .map_container {
@@ -101,4 +103,50 @@
     color: #FFFFFF;
     font-family: SFProDisplay-Bold, sans-serif;
     margin-block: 10%;
+}
+
+@media (max-width: 650px) {
+    .item_contact a {
+        font-size: 1.3vw;
+    }
+
+    .transparent_header h1 {
+        -webkit-text-stroke: 1px rgba(255, 185, 0, 0.7);
+    }
+
+    .contacts_container {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .row_container {
+        flex-direction: column;
+    }
+
+    .items_container {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .item_contact {
+        margin-inline: auto;
+        height: 20vw;
+        width: 20vw;
+        padding-block: 4%;
+        padding-inline: 10%;
+    }
+
+    .item_contact a {
+        font-size: 2.4vw;
+    }
+
+    .map_container {
+        width: 100%;
+    }
+
+    .map_container img {
+        max-width: 60%;
+    }
 }
