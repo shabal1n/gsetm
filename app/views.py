@@ -16,7 +16,9 @@ def main_page(request):
 def about_company(request):
     generators_categories = GeneratorCategory.objects.all()
     clients = Client.objects.all()
-    return render(request, 'about_company.html', {'categories': generators_categories, 'clients': clients})
+    about_numbers = AboutUsNumbers.objects.first()
+    return render(request, 'about_company.html',
+                  {'categories': generators_categories, 'clients': clients, 'about_numbers': about_numbers})
 
 
 def generators(request):
@@ -43,7 +45,8 @@ def generator_description(request, gen_id):
 
 def rent(request):
     generators_categories = GeneratorCategory.objects.all()
-    return render(request, 'rent.html', {'categories': generators_categories})
+    rent_generators = GeneratorsRent.objects.all()
+    return render(request, 'rent.html', {'categories': generators_categories, 'rent_generators': rent_generators})
 
 
 def projects(request):

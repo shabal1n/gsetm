@@ -30,19 +30,62 @@
     </div>
 
     <div class="service">
-        <div class="transparent_header">
-            <h1>СЕРВИС</h1>
-            <h2>СЕРВИС</h2>
-        </div>
         <div class="rectangles">
-            <div class="dashed_rectangle">
-                <p>• Квалифицированные сотрудники</p>
-                <p>• Сравнительный анализ оборудования</p>
-                <p>• Выгодные условия</p>
-                <p>• Оперативность в поставке оборудования</p>
-                <p>• Решение нестандартных задач</p>
-                <p>• Собственная техническая база</p>
+            <div class="dashed_rectangle_container">
+                <div class="dashed_rectangle" style="margin-right: 34%; text-align: left">
+                    <img src="{% static 'images/triangle_arrow.png' %}" alt="arrow">
+                    <p>Квалифицированные сотрудники</p>
+                </div>
             </div>
+            <div class="dashed_rectangle_container">
+                <div class="dashed_rectangle" style="margin-left: 34%; text-align: right">
+                    <p>Сравнительный анализ оборудования</p>
+                    <img class="rotate_180" src="{% static 'images/triangle_arrow.png' %}" alt="arrow">
+                </div>
+            </div>
+            <div class="dashed_rectangle_container">
+                <div class="dashed_rectangle" style="margin-right: 34%; text-align: left">
+                    <img src="{% static 'images/triangle_arrow.png' %}" alt="arrow">
+                    <p>Выгодные условия</p>
+                </div>
+            </div>
+            <div class="dashed_rectangle_container">
+                <div class="dashed_rectangle" style="margin-left: 34%; text-align: right">
+                    <p>Оперативность в поставке оборудования</p>
+                    <img class="rotate_180" src="{% static 'images/triangle_arrow.png' %}" alt="arrow">
+                </div>
+            </div>
+            <div class="dashed_rectangle_container">
+                <div class="dashed_rectangle" style="margin-right: 34%; text-align: left">
+                    <img src="{% static 'images/triangle_arrow.png' %}" alt="arrow">
+                    <p>Решение нестандартных задач</p>
+                </div>
+            </div>
+            <div class="dashed_rectangle_container">
+                <div class="dashed_rectangle" style="margin-left: 34%; text-align: right">
+                    <p>Собственная техническая база</p>
+                    <img class="rotate_180" src="{% static 'images/triangle_arrow.png' %}" alt="arrow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clients_info">
+        <div class="info_container">
+            <h1>{{ about_numbers.types_of_items }}</h1>
+            <h2>ВИДОВ ТОВАРА</h2>
+        </div>
+        <div class="info_container">
+            <h1>{{ about_numbers.delivery_days }}</h1>
+            <h2>ДНЕЙ ДОСТАВКА</h2>
+        </div>
+        <div class="info_container">
+            <h1>{{ about_numbers.employers }}</h1>
+            <h2>СОТРУДНИКОВ</h2>
+        </div>
+        <div class="info_container">
+            <h1>{{ about_numbers.clients }}</h1>
+            <h2>КЛИЕНТОВ</h2>
         </div>
     </div>
 

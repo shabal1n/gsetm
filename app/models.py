@@ -1,6 +1,30 @@
 from django.db import models
 
 
+class AboutUsNumbers(models.Model):
+    types_of_items = models.IntegerField(verbose_name='Видов товара', blank=True, default=0)
+    delivery_days = models.IntegerField(verbose_name='Дней доставка', blank=True, default=0)
+    employers = models.IntegerField(verbose_name='Сотрудников', blank=True, default=0)
+    clients = models.IntegerField(verbose_name='Клиентов', blank=True, default=0)
+
+    class Meta:
+        verbose_name = 'Цифры о нас(на странице О компании)'
+        verbose_name_plural = 'Цифры о нас(на странице О компании)'
+
+
+class GeneratorsRent(models.Model):
+    title = models.CharField(max_length=12, verbose_name='Категория генераторов', blank=True, null=True)
+    price = models.IntegerField(verbose_name='Цена от', default=0)
+    image = models.ImageField(null=True, blank=True, verbose_name='картинка', upload_to='rent_generators')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Генератор в аренду'
+        verbose_name_plural = 'Генераторы в аренду'
+
+
 class Client(models.Model):
     title = models.CharField(max_length=50, verbose_name='название', blank=True, null=True)
     image = models.ImageField(null=True, blank=True, verbose_name='картинка', upload_to='our_clients')
@@ -55,7 +79,7 @@ class ReserveAutomat(models.Model):
 
 
 class GeneratorCategory(models.Model):
-    title = models.CharField(max_length=10, verbose_name='Название категории')
+    title = models.CharField(max_length=12, verbose_name='Название категории')
 
     def __str__(self):
         return self.title
