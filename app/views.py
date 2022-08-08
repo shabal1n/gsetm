@@ -29,6 +29,14 @@ def generators(request):
                   {'categories': generators_categories, 'alternators': alternators, 'course': dollar_course})
 
 
+def generator_category(request, category_id):
+    generators_categories = GeneratorCategory.objects.all()
+    alternators = Alternator.objects.filter(generator__category_id=category_id)
+    dollar_course = get_price_KZT()
+    return render(request, 'generators.html',
+                  {'categories': generators_categories, 'alternators': alternators, 'course': dollar_course})
+
+
 def generator_description(request, gen_id):
     generators_categories = GeneratorCategory.objects.all()
     generator = Generator.objects.get(id=gen_id)

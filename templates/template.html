@@ -1,3 +1,4 @@
+{% load cms_tags sekizai_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,30 +7,33 @@
     <link rel="stylesheet" href="{% static 'css/template.css' %}">
     <script src="{% static 'js/loader.js' %}"></script>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ request.resolver_match.url_name }}</title>
+    <title>{% page_attribute "page_title" %}</title>
+    {% render_block "css" %}
 </head>
 <body>
 <div id="loader"></div>
 <div id="content">
+    {% cms_toolbar %}
+    {% placeholder "content" %}
     <div class="header">
         <div class="logo_container">
             <img src="{% static 'images/logo.png' %}" class="logo" alt="Logo">
         </div>
         <div class="buttons">
-            <a href="/" class="single_button">Главная</a>
-            <a href="/about" class="single_button">О компании</a>
+            <a href="{% url 'app:main_page' %}" class="single_button">Главная</a>
+            <a href="{% url 'app:about' %}" class="single_button">О компании</a>
             <div class="dropdown">
                 <a class="single_button">Генераторы</a>
                 <div class="dropdown-content">
-                    <a href="/generators">Все генераторы</a>
+                    <a href="{% url 'app:generators' %}">Все генераторы</a>
                     {% for category in categories %}
-                        <a href="generators/{{ category.id }}">{{ category.title }}</a>
+                        <a href="{% url 'app:gen_category' category.id %}">{{ category.title }}</a>
                     {% endfor %}
                 </div>
             </div>
-            <a href="/rent" class="single_button">Аренда</a>
-            <a href="/projects" class="single_button">Наши проекты</a>
-            <a href="/contacts" class="single_button">Контакты</a>
+            <a href="{% url 'app:rent' %}" class="single_button">Аренда</a>
+            <a href="{% url 'app:projects' %}" class="single_button">Наши проекты</a>
+            <a href="{% url 'app:contacts' %}" class="single_button">Контакты</a>
         </div>
         <div class="contacts">
             <a href="mailto:gsetmsales@gmail.com" id="single_contact">gsetmsales@gmail.com</a>
@@ -61,15 +65,16 @@
             </div>
             <div class="footer_item">
                 <h4>карта сайта</h4>
-                <a href="/">> Главная</a>
-                <a href="/about">> О компании</a>
-                <a href="/generators">> Генераторы</a>
-                <a href="/rent">> Аренда</a>
-                <a href="/projects">> Наши проекты</a>
-                <a href="/contacts">> Контакты</a>
+                <a href="{% url 'app:main_page' %}">> Главная</a>
+                <a href="{% url 'app:about' %}">> О компании</a>
+                <a href="{% url 'app:generators' %}">> Генераторы</a>
+                <a href="{% url 'app:rent' %}">> Аренда</a>
+                <a href="{% url 'app:projects' %}">> Наши проекты</a>
+                <a href="{% url 'app:contacts' %}">> Контакты</a>
             </div>
         </div>
     </div>
+    {% render_block "js" %}
 </div>
 </body>
 </html>
