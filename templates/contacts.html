@@ -1,5 +1,8 @@
 {% extends 'template.html' %}
 {% load static %}
+{% block seo-tag %}
+	<meta name="Контактные данные" content="Генераторы на заказ и в наличии. Доставка по РК. Генераторы в аренду. Контакты, адрес, социальные сети.">
+{% endblock %}
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
     <div class="transparent_header">
@@ -10,7 +13,7 @@
             <div class="items_container">
                 <div class="item_contact" style="margin-top: 0; margin-bottom: auto">
                     <img src="{% static 'images/map_icon.png' %}">
-                    <a>г. Алматы, микрорайон Тастыбулак, с/т Алмалы, д.76/1</a>
+                    <a>г. Алматы, ул. Черноморская 38\1</a>
                 </div>
 
                 <div class="item_contact" style="margin-bottom: 0; margin-top: auto">

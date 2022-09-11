@@ -7,7 +7,7 @@ from .models import *
 
 def main_page(request):
     generators_categories = GeneratorCategory.objects.all()
-    clients = Client.objects.all()[:5]
+    clients = Client.objects.all()
     projects_list = Project.objects.all()[:3]
     return render(request, 'main_page.html',
                   {'categories': generators_categories, 'clients': clients, 'projects': projects_list})
@@ -74,3 +74,11 @@ def get_price_KZT():
     exchange_rate = float(response.text)
 
     return math.ceil(exchange_rate)
+
+
+def generators_category(request, category_id):
+    generators_categories = GeneratorCategory.objects.all()
+    alternators = Alternator.objects.filter(generator__category_id=category_id)
+    dollar_course = get_price_KZT()
+    return render(request, 'generators.html',
+                  {'categories': generators_categories, 'alternators': alternators, 'course': dollar_course})

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.sitemaps import ping_google
 
 
 class AboutUsNumbers(models.Model):
@@ -6,6 +7,13 @@ class AboutUsNumbers(models.Model):
     delivery_days = models.IntegerField(verbose_name='Дней доставка', blank=True, default=0)
     employers = models.IntegerField(verbose_name='Сотрудников', blank=True, default=0)
     clients = models.IntegerField(verbose_name='Клиентов', blank=True, default=0)
+
+    def save(self, force_insert=False, force_update=False):
+        super().save(force_insert, force_update)
+        try:
+            ping_google()
+        except Exception:
+            pass
 
     class Meta:
         verbose_name = 'Цифры о нас(на странице О компании)'
@@ -16,6 +24,13 @@ class GeneratorsRent(models.Model):
     title = models.CharField(max_length=12, verbose_name='Категория генераторов', blank=True, null=True)
     price = models.IntegerField(verbose_name='Цена от', default=0)
     image = models.ImageField(null=True, blank=True, verbose_name='картинка', upload_to='rent_generators')
+
+    def save(self, force_insert=False, force_update=False):
+        super().save(force_insert, force_update)
+        try:
+            ping_google()
+        except Exception:
+            pass
 
     def __str__(self):
         return self.title
@@ -29,6 +44,13 @@ class Client(models.Model):
     title = models.CharField(max_length=50, verbose_name='название', blank=True, null=True)
     image = models.ImageField(null=True, blank=True, verbose_name='картинка', upload_to='our_clients')
 
+    def save(self, force_insert=False, force_update=False):
+        super().save(force_insert, force_update)
+        try:
+            ping_google()
+        except Exception:
+            pass
+
     def __str__(self):
         return self.title
 
@@ -41,6 +63,13 @@ class Project(models.Model):
     title = models.CharField(max_length=50, verbose_name='название', blank=True, null=True)
     image = models.ImageField(null=True, blank=True, verbose_name='картинка', upload_to='our_projects')
     description = models.TextField(max_length=140, verbose_name='описание', blank=True, null=True)
+
+    def save(self, force_insert=False, force_update=False):
+        super().save(force_insert, force_update)
+        try:
+            ping_google()
+        except Exception:
+            pass
 
     def __str__(self):
         return self.title
@@ -131,6 +160,13 @@ class AlternatorManufacturer(models.Model):
         return self.title
 
 
+class AvailableStock(models.Model):
+    title = models.CharField(max_length=30, verbose_name='Наличие')
+
+    def __str__(self):
+        return self.title
+
+
 class Generator(models.Model):
     title = models.CharField(max_length=20, verbose_name='Название', blank=True, null=True)
     category = models.ForeignKey(GeneratorCategory, on_delete=models.CASCADE, verbose_name='Категория')
@@ -141,9 +177,10 @@ class Generator(models.Model):
 
     ask_for_price = models.BooleanField(verbose_name='Цену уточняйте', default=False)
     price = models.FloatField(verbose_name='Цена, USD', blank=True, null=True)
+    stock = models.ForeignKey(AvailableStock, on_delete=models.CASCADE, verbose_name='Наличие')
 
     execution = models.ForeignKey(Execution, on_delete=models.CASCADE, verbose_name='Исполнение')
-    max_power = models.FloatField(max_length=20, verbose_name='Мощность максимальная, кВт', blank=True, null=True)
+    max_power = models.CharField(max_length=30, verbose_name='Мощность максимальная, кВт', blank=True, null=True)
     nominal_power = models.FloatField(max_length=20, verbose_name='Мощность номинальная, кВт', blank=True, null=True)
     power_coefficient = models.FloatField(max_length=20, verbose_name='Коэффициент мощности', blank=True, null=True)
     frequency = models.IntegerField(verbose_name='Частота, Гц', blank=True, null=True)
@@ -151,7 +188,8 @@ class Generator(models.Model):
     reserve_automat = models.ForeignKey(ReserveAutomat, on_delete=models.CASCADE, verbose_name='Наличие автомата '
                                                                                                'ввода резерва (АВР)')
 
-    image = models.ImageField(blank=True, verbose_name='Изображение на странице генераторов', upload_to='generators')
+    image = models.ImageField(null=False, blank=False, verbose_name='Изображение на странице генераторов',
+                              upload_to='generators')
 
     def __str__(self):
         return self.title + ' (' + self.execution.title + ")"

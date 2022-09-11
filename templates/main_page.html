@@ -1,5 +1,8 @@
 {% extends 'template.html' %}
 {% load static %}
+{% block seo-tag %}
+	<meta name="Купить генератор" content="Генераторы на заказ и в наличии. Доставка по РК. Генераторы в аренду. Обслуживание генераторов. Официальная гарантия.">
+{% endblock %}
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
     <div class="beginning">
@@ -27,17 +30,34 @@
 
     <div class="about_us">
         <div class="transparent_header">
-            <h1>о нас</h1>
             <h2>о нас</h2>
         </div>
-        <div class="about_us_image">
-            <img src="{% static 'images/about_us.png' %}" alt="About us"/>
+
+        <div class="about_container">
+            <div class="about_rectangles_container">
+                <div class="about_rectangle">
+                    <p>Генераторы в наличии и под заказ</p>
+                </div>
+                <div class="about_rectangle">
+                    <p>Аренда генераторов</p>
+                </div>
+            </div>
+            <div class="about_us_image">
+                <img src="{% static 'images/about_us.png' %}" alt="About us"/>
+            </div>
+            <div class="about_rectangles_container">
+                <div class="about_rectangle">
+                    <p>Установка и тех. обслуживание</p>
+                </div>
+                <div class="about_rectangle">
+                    <p>Пуско-наладочные работы</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="our_advantages">
         <div class="transparent_header">
-            <h1>наши преимущества</h1>
             <h2>наши преимущества</h2>
         </div>
         <div>
@@ -64,18 +84,16 @@
             <div class="advantage">
                 <h1>3</h1>
                 <div class="advantage_text_container">
-                    <h2>большой выбор</h2>
-                    <h3>25 моделей разной мощности всегда в наличии на складе,
-                        модели любой мощности под заказ</h3>
+                    <h2>наличие на складе</h2>
+                    <h3>На нашем складе всегда в наличии большое количество готовых к отгрузке дизельных электростанций. Ваш генератор будет доставлен вовремя</h3>
                 </div>
             </div>
 
             <div class="advantage">
                 <div class="advantage_text_container" style="text-align: end">
-                    <h2>лучшие цены</h2>
-                    <h3>мы способны удерживать лучшие цены,
-                        так как реализуем дизельные генераторы
-                        под собственной маркой Genset Maсhinery</h3>
+                    <h2>Арендный парк</h2>
+                    <h3>Арендный парк Genset Maсhinery
+                        мощностью от 20кВА до 1МВт </h3>
                 </div>
                 <h1>4</h1>
             </div>
@@ -84,8 +102,7 @@
 
     <div class="our_projects">
         <div class="transparent_header">
-            <h1 style="font-size: 7vw">выполненные проекты</h1>
-            <h2 style="font-size: 5vw">выполненные проекты</h2>
+            <h2 style="font-size: 5vw; padding-bottom: 5%">выполненные проекты</h2>
         </div>
 
         <div class="projects">

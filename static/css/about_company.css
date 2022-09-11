@@ -79,13 +79,11 @@ body {
 }
 
 .transparent_header h2 {
-    position: absolute;
-    z-index: 1;
     width: 100%;
     font-family: SFProDisplay-Bold, sans-serif;
     text-transform: uppercase;
-    font-size: 6vw;
-    color: #FFFFFF;
+    font-size: 7vw;
+    color: rgba(255, 185, 0, 1);
     margin: 0;
 }
 
@@ -144,7 +142,7 @@ body {
 .service {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 75%;
     border: 2px dashed #FFB900;
     border-radius: 25px;
     margin-inline: auto;
@@ -162,9 +160,8 @@ body {
 }
 
 .dashed_rectangle {
-    width: 60%;
+    width: 98%;
     border-radius: 1%;
-    padding-inline: 3%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -188,7 +185,6 @@ body {
 
 .dashed_rectangle p {
     font-family: SFProDisplay-Bold, sans-serif;
-    margin-left: 5%;
     font-size: 1.5vw;
     color: #FFFFFF;
     width: 100%;
@@ -211,23 +207,26 @@ body {
 .clients {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    padding-block: 2%;
+    padding-block: 4%;
 }
 
 .clients img {
     width: 13%;
-    margin-inline: auto;
+    margin-inline: 3%;
+    margin-block: 1%;
 }
 
 .clients_info {
+    margin-top: 5%;
     display: flex;
     flex-wrap: nowrap;
     background-image: url("../images/wave.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    max-width: 100%;
     height: 30vh;
+    max-width: 100%;
     padding-inline: 10%;
     margin-inline: auto;
 }
@@ -301,5 +300,19 @@ body {
 
     #last_point h2 {
         font-size: 2.7vw;
+    }
+
+    .clients_info {
+        background-size: 100%;
+        background-position: bottom;
+        height: auto;
+    }
+
+    .info_container h1 {
+        font-size: 3.2vw;
+    }
+
+    .info_container h2 {
+        font-size: 2.2vw;
     }
 }

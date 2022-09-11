@@ -3,10 +3,23 @@
 <html lang="en">
 <head>
     {% block imports %}{% endblock %}
+  	{% block seo-tag %}
+	<meta name="Купить генераторы" content="Генераторы на заказ и в наличии. Доставка по РК. Генераторы в аренду. Обслуживание и установка генераторов. Качественный сервис. Официальная гарантия.">
+	{% endblock %}
     <link rel="stylesheet" href="{% static 'css/template.css' %}">
+    <script src="{% static 'js/template.js' %}"></script>
     <script src="{% static 'js/loader.js' %}"></script>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ request.resolver_match.url_name }}</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-237354474-1">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-237354474-1');
+  </script>
 </head>
 <body>
 <div id="loader"></div>
@@ -18,12 +31,12 @@
         <div class="buttons">
             <a href="/" class="single_button">Главная</a>
             <a href="/about" class="single_button">О компании</a>
-            <div class="dropdown">
+            <div class="dropdown" onclick="clicked()">
                 <a class="single_button">Генераторы</a>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="clickable">
                     <a href="/generators">Все генераторы</a>
                     {% for category in categories %}
-                        <a href="generators/{{ category.id }}">{{ category.title }}</a>
+                        <a href="/generators/{{ category.id }}">{{ category.title }}</a>
                     {% endfor %}
                 </div>
             </div>
