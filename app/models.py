@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.sitemaps import ping_google
+from app.utils.sitemap_ping import ping_google
 
 
 class AboutUsNumbers(models.Model):
