@@ -1,3 +1,6 @@
 /.idea/
 /app/migrations/
 .git
+gsetm/__pycache__
+app/__pycache__
+app/utils/__pycache__
