@@ -4,30 +4,31 @@ from .models import *
 
 
 def main_page(request):
-    generators_categories = GeneratorCategory.objects.all()
+    generators = GeneratorsRent.objects.all()
     clients = Client.objects.all()
-    projects_list = Project.objects.all()[:3]
-    return render(
-        request,
-        "main_page.html",
-        {
-            "generators_categories": generators_categories,
-            "clients": clients,
-            "projects_list": projects_list,
-        },
-    )
+    projects = Project.objects.all()[:3]
+
+    context = {
+        "generators": generators,
+        "clients": clients,
+        "projects": projects,
+    }
+    return render(request, "main_page.html", context)
 
 
 def about_company(request):
-    return render(request, "about_company.html")
+    about_data = AboutUsNumbers.objects.first()
+    return render(request, "about_company.html", {"about": about_data})
 
 
 def generators(request):
-    return render(request, "generators.html")
+    generators_list = GeneratorsRent.objects.all()
+    return render(request, "generators.html", {"generators": generators_list})
 
 
 def generator_description(request, gen_id):
-    return render(request, "generator_description.html")
+    generator = GeneratorsRent.objects.get(id=gen_id)
+    return render(request, "generator_description.html", {"generator": generator})
 
 
 def rent(request):
@@ -35,7 +36,8 @@ def rent(request):
 
 
 def projects(request):
-    return render(request, "projects.html")
+    projects_list = Project.objects.all()
+    return render(request, "projects.html", {"projects": projects_list})
 
 
 def contacts(request):
