@@ -22,16 +22,26 @@ def about_company(request):
 
 
 def generators(request):
+    # Загружаем категории И генераторы
+    categories = GeneratorCategory.objects.all()
     generators_list = Generator.objects.all()
-    return render(request, "generators.html", {"generators": generators_list})
+
+    return render(
+        request,
+        "generators.html",
+        {
+            "categories": categories,
+            "generators": generators_list,
+        },
+    )
 
 
 def generator_description(request, gen_id):
     try:
         generator = Generator.objects.get(id=gen_id)
-        engine = Engine.objects.get(generator=generator)
-        alternator = Alternator.objects.get(generator=generator)
-        parameters = GeneratorParameters.objects.get(generator=generator)
+        engine = Engine.objects.filter(generator=generator).first()
+        alternator = Alternator.objects.filter(generator=generator).first()
+        parameters = GeneratorParameters.objects.filter(generator=generator).first()
         images = GeneratorImage.objects.filter(generator=generator)
 
         context = {
@@ -64,10 +74,16 @@ def generators_category(request, category_id):
     try:
         category = GeneratorCategory.objects.get(id=category_id)
         generators_list = Generator.objects.filter(category=category)
+        categories = GeneratorCategory.objects.all()
+
         return render(
             request,
             "generators.html",
-            {"generators": generators_list, "category": category},
+            {
+                "generators": generators_list,
+                "categories": categories,
+                "current_category": category,
+            },
         )
     except GeneratorCategory.DoesNotExist:
         return HttpResponse("Category not found", status=404)
