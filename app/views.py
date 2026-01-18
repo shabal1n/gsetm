@@ -6,7 +6,7 @@ from .models import *
 def main_page(request):
     generators = GeneratorsRent.objects.all()
     clients = Client.objects.all()
-    projects = Project.objects.all()[:3]
+    projects = Project.objects.all()
 
     context = {
         "generators": generators,
@@ -22,17 +22,33 @@ def about_company(request):
 
 
 def generators(request):
-    generators_list = GeneratorsRent.objects.all()
+    generators_list = Generator.objects.all()
     return render(request, "generators.html", {"generators": generators_list})
 
 
 def generator_description(request, gen_id):
-    generator = GeneratorsRent.objects.get(id=gen_id)
-    return render(request, "generator_description.html", {"generator": generator})
+    try:
+        generator = Generator.objects.get(id=gen_id)
+        engine = Engine.objects.get(generator=generator)
+        alternator = Alternator.objects.get(generator=generator)
+        parameters = GeneratorParameters.objects.get(generator=generator)
+        images = GeneratorImage.objects.filter(generator=generator)
+
+        context = {
+            "generator": generator,
+            "engine": engine,
+            "alternator": alternator,
+            "parameters": parameters,
+            "images": images,
+        }
+        return render(request, "generator_description.html", context)
+    except Generator.DoesNotExist:
+        return HttpResponse("Generator not found", status=404)
 
 
 def rent(request):
-    return render(request, "rent.html")
+    rent_generators = GeneratorsRent.objects.all()
+    return render(request, "rent.html", {"rent_generators": rent_generators})
 
 
 def projects(request):
@@ -45,8 +61,13 @@ def contacts(request):
 
 
 def generators_category(request, category_id):
-    return render(request, "generators.html")
-
-
-def get_price_KZT():
-    return HttpResponse("Price in KZT")
+    try:
+        category = GeneratorCategory.objects.get(id=category_id)
+        generators_list = Generator.objects.filter(category=category)
+        return render(
+            request,
+            "generators.html",
+            {"generators": generators_list, "category": category},
+        )
+    except GeneratorCategory.DoesNotExist:
+        return HttpResponse("Category not found", status=404)
