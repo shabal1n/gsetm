@@ -1,42 +1,46 @@
-{% extends 'template.html' %}
-{% load static %}
-{% block seo-tag %}
-	<meta name="Генераторы" content="Генераторы на заказ и в наличии. Доставка по РК. Широкий ассортимент. Генераторы разных мощностей. Генераторы в Алматы с доставкой по РК.">
-{% endblock %}
-{% block content %}
-    <link rel="stylesheet" href="{% static 'css/generators.css' %}">
-    <div class="head_image">
-        <img class="head_image" src="{% static 'images/head_image_generators.png' %}" alt="Head image"/>
-    </div>
+{% extends 'template.html' %} {% load static %} {% block seo-tag %}
+<meta
+  name="Генераторы"
+  content="Генераторы на заказ и в наличии. Доставка по РК. Широкий ассортимент. Генераторы разных мощностей. Генераторы в Алматы с доставкой по РК."
+/>
+{% endblock %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/generators.css' %}" />
+<div class="head_image">
+  <img
+    class="head_image"
+    src="{% static 'images/head_image_generators.png' %}"
+    alt="Head image"
+  />
+</div>
 
-    <div class="centered_big_text">
-        <h1>АССОРТИМЕНТ ГЕНЕРАТОРОВ</h1>
-    </div>
+<div class="centered_big_text">
+  <h1>АССОРТИМЕНТ ГЕНЕРАТОРОВ</h1>
+</div>
 
-    <div class="generators">
-        {% for generator in generators %}
-            <div class="single_generator">
-                <div class="image_container">
-                    <img src="{{ generator.generator.image.url }}" alt="Generator"/>
-                </div>
-                <div class="generator_description">
-                    <h1>{{ generator.generator.title }}</h1>
-                    <h5>Мощность станции: {{ generator.generator.power }} кВт</h5>
-                    <h5>Марка двигателя: {{ generator.generator.engine_name }}</h5>
-                    <h5>Марка альтернатора: {{ generator.manufacturer }}</h5>
-                    {% if generator.generator.ask_for_price %}
-                        <h4>ЦЕНУ УТОЧНЯЙТЕ</h4>
-                    {% else %}
-                        <h4>ЦЕНА от {% widthratio generator.generator.price 1 course %} KZT</h4>
-                    {% endif %}
-                  	<h4>{{ generator.generator.stock.title }}</h4>
-                </div>
-                <div class="button_container">
-                    <div class="button_red">
-                        <a href="/generator/{{ generator.generator.id }}">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+<div class="generators">
+  {% for generator in generators %}
+  <div class="single_generator">
+    <div class="image_container">
+      <img src="{{ generator.generator.image.url }}" alt="Generator" />
     </div>
+    <div class="generator_description">
+      <h1>{{ generator.generator.title }}</h1>
+      <h5>Мощность станции: {{ generator.generator.power }} кВт</h5>
+      <h5>Марка двигателя: {{ generator.generator.engine_name }}</h5>
+      <h5>Марка альтернатора: {{ generator.manufacturer }}</h5>
+      {% if generator.generator.ask_for_price %}
+      <h4>ЦЕНУ УТОЧНЯЙТЕ</h4>
+      {% else %}
+      <h4>ЦЕНА от {{ generator.generator.price }} KZT</h4>
+      {% endif %}
+      <h4>{{ generator.generator.stock.title }}</h4>
+    </div>
+    <div class="button_container">
+      <div class="button_red">
+        <a href="/generator/{{ generator.generator.id }}">Подробнее</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
