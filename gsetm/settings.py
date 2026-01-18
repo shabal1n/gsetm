@@ -28,14 +28,14 @@ CSRF_TRUSTED_ORIGINS = [
 SECRET_KEY = "django-insecure-ftidn9@h37(cg(9ly+w6(^^0@gd96uv(7h@0zvl&x%=t&&wg#z"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "gsetm.kz",
     "www.gsetm.kz",
     "194.39.67.204",
     "gsetm.jcloud.kz",
-    "www.gsetm.jcloud.kz"
+    "www.gsetm.jcloud.kz",
 ]
 
 # Application definition
