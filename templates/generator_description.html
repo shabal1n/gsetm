@@ -1,329 +1,352 @@
-{% extends 'template.html' %}
-{% load static %}
-{% block imports %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-{% endblock %}
-{% block content %}
-    <link rel="stylesheet" href="{% static 'css/generator_description.css' %}">
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <div class="head_image">
-        <img class="head_image" src="{% static 'images/head_image_generators.png' %}" alt="Head image"/>
-    </div>
+{% extends 'template.html' %} {% load static %} {% block imports %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+{% endblock %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/generator_description.css' %}" />
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<div class="head_image">
+  <img
+    class="head_image"
+    src="{% static 'images/head_image_generators.png' %}"
+    alt="Head image"
+  />
+</div>
 
-    <div class="centered_big_text">
-        <h1>{{ generator.title }}</h1>
-        <hr>
-    </div>
+<div class="centered_big_text">
+  <h1>{{ generator.title }}</h1>
+  <hr />
+</div>
 
-    <div class="description">
-        <div class="half">
-            <div class="images">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        {% for i in range %}
-                            {% if forloop.first %}
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"
-                                    class="active"></li>
-                            {% else %}
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ol>
-                    <div class="carousel-inner h-100">
-                        {% for image in images %}
-                            {% if forloop.first %}
-                                <div class="carousel-item h-100 active">
-                                    <img class="d-block w-100" src="{{ image.image.url }}"
-                                         alt="{{ image.generator.title }}">
-                                </div>
-                            {% else %}
-                                <div class="carousel-item h-100">
-                                    <img class="d-block w-100" src="{{ image.image.url }}"
-                                         alt="{{ image.generator.title }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    {% if generator.ask_for_price %}
-                        <h4>ЦЕНУ УТОЧНЯЙТЕ</h4>
-                    {% else %}
-                        <h4>ЦЕНА от {% widthratio generator.price 1 course %} KZT</h4>
-                    {% endif %}
-                  <h4>{{ generator.stock.title }}</h4>
-                </div>
-            </div>
-
-            <div class="description_text">
-                <div class="single_text_container">
-                    <h1>Двигатель</h1>
-                    <h2>{{ generator.engine_name }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Тип топлива</h1>
-                    <h2>{{ generator.fuel_type.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Напряжение</h1>
-                    <h2>{{ generator.voltage }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Мощность</h1>
-                    <h2>{{ generator.power }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Исполнение</h1>
-                    <h2>{{ generator.execution }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Мощность максимальная</h1>
-                    <h2>{{ generator.max_power }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Мощность номинальная, кВт</h1>
-                    <h2>{{ generator.nominal_power }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Коэффициент мощности</h1>
-                    <h2>{{ generator.power_coefficient }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Частота, Гц</h1>
-                    <h2>{{ generator.frequency }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Система запуска</h1>
-                    <h2>{{ generator.start_system.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Наличие автомата ввода резерва (АВР)</h1>
-                    <h2>{{ generator.reserve_automat.title }}</h2>
-                </div>
-                <hr>
-            </div>
+<div class="description">
+  <div class="half">
+    <div class="images">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          {% for i in range %} {% if forloop.first %}
+          <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="{{ i }}"
+            class="active"
+          ></li>
+          {% else %}
+          <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="{{ i }}"
+          ></li>
+          {% endif %} {% endfor %}
+        </ol>
+        <div class="carousel-inner h-100">
+          {% for image in images %} {% if forloop.first %}
+          <div class="carousel-item h-100 active">
+            <img
+              class="d-block w-100"
+              src="{{ image.image.url }}"
+              alt="{{ image.generator.title }}"
+            />
+          </div>
+          {% else %}
+          <div class="carousel-item h-100">
+            <img
+              class="d-block w-100"
+              src="{{ image.image.url }}"
+              alt="{{ image.generator.title }}"
+            />
+          </div>
+          {% endif %} {% endfor %}
         </div>
-
-        {#ENGINE OPTIONS#}
-        <div class="half">
-            <div class="description_text">
-                <div class="description_title">
-                    <div class="yellow_square">
-                        <h1>ДВИГАТЕЛЬ</h1>
-                    </div>
-                </div>
-
-                <div class="single_text_container">
-                    <h1>Производитель</h1>
-                    <h2>{{ engine.manufacturer.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Модель</h1>
-                    <h2>{{ engine.engine_model }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Количество оборотов двигателя</h1>
-                    <h2>{{ engine.speed }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Рабочая мощность двигателя, кВт</h1>
-                    <h2>{{ engine.working_power }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Максимальная мощность двигателя, кВт</h1>
-                    <h2>{{ engine.max_power }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Количество цилиндров</h1>
-                    <h2>{{ engine.cylinders }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Расположение цилиндров</h1>
-                    <h2>{{ engine.cylinders_positioning.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Турбонаддув</h1>
-                    <h2>{{ engine.turbo.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Система охлаждения</h1>
-                    <h2>{{ engine.cooling_system.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Тип регулятора двигателя</h1>
-                    <h2>{{ engine.regulator_type.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Объём двигателя, л</h1>
-                    <h2>{{ engine.volume }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Электрическая система питания, В</h1>
-                    <h2>{{ engine.electric_system }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Расход топлива при 50% нагрузке, л.ч.</h1>
-                    <h2>{{ engine.fuel_consumption_50 }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Расход топлива при 75% нагрузке, л.ч.</h1>
-                    <h2>{{ engine.fuel_consumption_75 }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Расход топлива при 100% нагрузке, л.ч.</h1>
-                    <h2>{{ engine.fuel_consumption_100 }}</h2>
-                </div>
-                <hr>
-            </div>
-
-            {#ALTERNATOR OPTIONS#}
-            <div class="description_text">
-                <div class="description_title">
-                    <div class="yellow_square">
-                        <h1>АЛЬТЕРНАТОР</h1>
-                    </div>
-                </div>
-
-                <div class="single_text_container">
-                    <h1>Производитель</h1>
-                    <h2>{{ alternator.manufacturer.title }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Тип</h1>
-                    <h2>{{ alternator.type }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Номинальная мощность, кВт</h1>
-                    <h2>{{ alternator.nominal_power }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Перегрузка</h1>
-                    <h2>{{ alternator.overload }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Сопр. изоляции, vac</h1>
-                    <h2>{{ alternator.isolation_resistance }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Степень изоляции</h1>
-                    <h2>{{ alternator.isolation_level }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Напряжение, В</h1>
-                    <h2>{{ alternator.voltage }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Регулятор напряжения</h1>
-                    <h2>{{ alternator.voltage_regulator }}</h2>
-                </div>
-                <hr>
-
-                <div class="description_title">
-                    <div class="yellow_square">
-                        <h1>ПАРАМЕТРЫ</h1>
-                    </div>
-                </div>
-
-                <div class="single_text_container">
-                    <h1>Емкость топливного бака, л</h1>
-                    <h2>{{ params.fuel_tank_volume }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Длина, мм</h1>
-                    <h2>{{ params.length }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Ширина, мм</h1>
-                    <h2>{{ params.width }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Высота, мм</h1>
-                    <h2>{{ params.height }}</h2>
-                </div>
-                <hr>
-
-                <div class="single_text_container">
-                    <h1>Масса, кг</h1>
-                    <h2>{{ params.weight }}</h2>
-                </div>
-                <hr>
-            </div>
-        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        {% if generator.ask_for_price %}
+        <h4>ЦЕНУ УТОЧНЯЙТЕ</h4>
+        {% else %}
+        <h4>ЦЕНА от {% widthratio generator.price 1 course %} KZT</h4>
+        {% endif %}
+        <h4>{{ generator.stock.title }}</h4>
+      </div>
     </div>
+
+    <div class="description_text">
+      <div class="single_text_container">
+        <h1>Двигатель</h1>
+        <h2>{{ generator.engine_name }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Тип топлива</h1>
+        <h2>{{ generator.fuel_type.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Напряжение</h1>
+        <h2>{{ generator.voltage }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Мощность</h1>
+        <h2>{{ generator.power }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Исполнение</h1>
+        <h2>{{ generator.execution }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Мощность максимальная</h1>
+        <h2>{{ generator.max_power }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Мощность номинальная, кВт</h1>
+        <h2>{{ generator.nominal_power }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Коэффициент мощности</h1>
+        <h2>{{ generator.power_coefficient }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Частота, Гц</h1>
+        <h2>{{ generator.frequency }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Система запуска</h1>
+        <h2>{{ generator.start_system.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Наличие автомата ввода резерва (АВР)</h1>
+        <h2>{{ generator.reserve_automat.title }}</h2>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+  {#ENGINE OPTIONS#}
+  <div class="half">
+    <div class="description_text">
+      <div class="description_title">
+        <div class="yellow_square">
+          <h1>ДВИГАТЕЛЬ</h1>
+        </div>
+      </div>
+
+      <div class="single_text_container">
+        <h1>Производитель</h1>
+        <h2>{{ engine.manufacturer.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Модель</h1>
+        <h2>{{ engine.engine_model }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Количество оборотов двигателя</h1>
+        <h2>{{ engine.speed }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Рабочая мощность двигателя, кВт</h1>
+        <h2>{{ engine.working_power }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Максимальная мощность двигателя, кВт</h1>
+        <h2>{{ engine.max_power }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Количество цилиндров</h1>
+        <h2>{{ engine.cylinders }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Расположение цилиндров</h1>
+        <h2>{{ engine.cylinders_positioning.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Турбонаддув</h1>
+        <h2>{{ engine.turbo.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Система охлаждения</h1>
+        <h2>{{ engine.cooling_system.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Тип регулятора двигателя</h1>
+        <h2>{{ engine.regulator_type.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Объём двигателя, л</h1>
+        <h2>{{ engine.volume }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Электрическая система питания, В</h1>
+        <h2>{{ engine.electric_system }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Расход топлива при 50% нагрузке, л.ч.</h1>
+        <h2>{{ engine.fuel_consumption_50 }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Расход топлива при 75% нагрузке, л.ч.</h1>
+        <h2>{{ engine.fuel_consumption_75 }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Расход топлива при 100% нагрузке, л.ч.</h1>
+        <h2>{{ engine.fuel_consumption_100 }}</h2>
+      </div>
+      <hr />
+    </div>
+
+    {#ALTERNATOR OPTIONS#}
+    <div class="description_text">
+      <div class="description_title">
+        <div class="yellow_square">
+          <h1>АЛЬТЕРНАТОР</h1>
+        </div>
+      </div>
+
+      <div class="single_text_container">
+        <h1>Производитель</h1>
+        <h2>{{ alternator.manufacturer.title }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Тип</h1>
+        <h2>{{ alternator.type }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Номинальная мощность, кВт</h1>
+        <h2>{{ alternator.nominal_power }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Перегрузка</h1>
+        <h2>{{ alternator.overload }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Сопр. изоляции, vac</h1>
+        <h2>{{ alternator.isolation_resistance }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Степень изоляции</h1>
+        <h2>{{ alternator.isolation_level }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Напряжение, В</h1>
+        <h2>{{ alternator.voltage }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Регулятор напряжения</h1>
+        <h2>{{ alternator.voltage_regulator }}</h2>
+      </div>
+      <hr />
+
+      <div class="description_title">
+        <div class="yellow_square">
+          <h1>ПАРАМЕТРЫ</h1>
+        </div>
+      </div>
+
+      <div class="single_text_container">
+        <h1>Емкость топливного бака, л</h1>
+        <h2>{{ params.fuel_tank_volume }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Длина, мм</h1>
+        <h2>{{ params.length }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Ширина, мм</h1>
+        <h2>{{ params.width }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Высота, мм</h1>
+        <h2>{{ params.height }}</h2>
+      </div>
+      <hr />
+
+      <div class="single_text_container">
+        <h1>Масса, кг</h1>
+        <h2>{{ params.weight }}</h2>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>
 
 {% endblock %}

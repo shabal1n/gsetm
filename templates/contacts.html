@@ -1,56 +1,84 @@
-{% extends 'template.html' %}
-{% load static %}
-{% block seo-tag %}
-	<meta name="Контактные данные" content="Генераторы на заказ и в наличии. Доставка по РК. Генераторы в аренду. Контакты, адрес, социальные сети.">
-{% endblock %}
-{% block content %}
-    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
-    <div class="transparent_header">
-        <h1>контактная информация</h1>
-    </div>
-    <div class="contacts_container">
-        <div class="row_container">
-            <div class="items_container">
-                <div class="item_contact" style="margin-top: 0; margin-bottom: auto">
-                    <img src="{% static 'images/map_icon.png' %}">
-                    <a>г. Алматы, ул. Черноморская 38</a>
-                </div>
+{% extends 'template.html' %} {% load static %} {% block seo-tag %}
+<meta
+  name="Контактные данные"
+  content="Генераторы на заказ и в наличии. Доставка по РК. Генераторы в аренду. Контакты, адрес, социальные сети."
+/>
+{% endblock %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}" />
+<div class="transparent_header">
+  <h1>контактная информация</h1>
+</div>
+<div class="contacts_container">
+  <div class="row_container">
+    <div class="items_container">
+      <div class="item_contact" style="margin-top: 0; margin-bottom: auto">
+        <img src="{% static 'images/map_icon.png' %}" />
+        <a>г. Алматы, ул. Черноморская 38</a>
+      </div>
 
-                <div class="item_contact" style="margin-bottom: 0; margin-top: auto">
-                    <img src="{% static 'images/phone_icon.png' %}">
-                    <a href="tel:+77058332855">+7 (705) 833 28 55</a>
-                    <a href="tel:+77772005442">+7 (777) 200 54 42</a>
-                </div>
-            </div>
-
-            <div class="map_container">
-                <a class="dg-widget-link" href="http://2gis.kz/almaty/firm/70000001063143225/center/76.934725,43.286677/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Алматы</a><div class="dg-widget-link"><a href="http://2gis.kz/almaty/center/76.934725,43.286677/zoom/16/routeTab/rsType/bus/to/76.934725,43.286677╎Genset machinery, компания?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Genset machinery, компания</a></div><script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":43.286677,"lon":76.934725,"zoom":16},"opt":{"city":"almaty"},"org":[{"id":"70000001063143225"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
-            </div>
-
-            <div class="items_container">
-                <div class="item_contact" style="margin-top: 0; margin-bottom: auto">
-                    <img src="{% static 'images/mail_icon.png' %}">
-                    <a href="mailto:gsetmsales@gmail.com">gsetmsales@gmail.com</a>
-                </div>
-                <div class="item_contact" style="margin-bottom: 0; margin-top: auto">
-                    <img src="{% static 'images/time_contacts_icon.png' %}">
-                    <a>Пн.-Пт.: с 09:00 до 18:00</a>
-                </div>
-            </div>
-        </div>
+      <div class="item_contact" style="margin-bottom: 0; margin-top: auto">
+        <img src="{% static 'images/phone_icon.png' %}" />
+        <a href="tel:+77058332855">+7 (705) 833 28 55</a>
+        <a href="tel:+77772005442">+7 (777) 200 54 42</a>
+      </div>
     </div>
 
-    <div class="transparent_header">
-        <h1>МЫ В СОЦИАЛЬНЫХ СЕТЯХ</h1>
+    <div class="map_container">
+      <a
+        class="dg-widget-link"
+        href="http://2gis.kz/almaty/firm/70000001063143225/center/76.934725,43.286677/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
+        >Посмотреть на карте Алматы</a
+      >
+      <div class="dg-widget-link">
+        <a
+          href="http://2gis.kz/almaty/center/76.934725,43.286677/zoom/16/routeTab/rsType/bus/to/76.934725,43.286677╎Genset machinery, компания?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route"
+          >Найти проезд до Genset machinery, компания</a
+        >
+      </div>
+      <script
+        charset="utf-8"
+        src="https://widgets.2gis.com/js/DGWidgetLoader.js"
+      ></script>
+      <script charset="utf-8">
+        new DGWidgetLoader({
+          width: 640,
+          height: 600,
+          borderColor: "#a3a3a3",
+          pos: { lat: 43.286677, lon: 76.934725, zoom: 16 },
+          opt: { city: "almaty" },
+          org: [{ id: "70000001063143225" }],
+        });
+      </script>
+      <noscript style="color: #c00; font-size: 16px; font-weight: bold"
+        >Виджет карты использует JavaScript. Включите его в настройках вашего
+        браузера.</noscript
+      >
     </div>
-    <div class="social_media">
-        <div class="single_media">
-            <img src="{% static 'images/instagram_icon.png' %}">
-            <a href="https://www.instagram.com/gensetmachinery">@gensetmachinery</a>
-        </div>
-        <div class="single_media">
-            <img src="{% static 'images/tiktok_icon.png' %}">
-            <a href="https://www.tiktok.com/@gensetmachinery">@gensetmachinery</a>
-        </div>
+
+    <div class="items_container">
+      <div class="item_contact" style="margin-top: 0; margin-bottom: auto">
+        <img src="{% static 'images/mail_icon.png' %}" />
+        <a href="mailto:gsetmsales@gmail.com">gsetmsales@gmail.com</a>
+      </div>
+      <div class="item_contact" style="margin-bottom: 0; margin-top: auto">
+        <img src="{% static 'images/time_contacts_icon.png' %}" />
+        <a>Пн.-Пт.: с 09:00 до 18:00</a>
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="transparent_header">
+  <h1>МЫ В СОЦИАЛЬНЫХ СЕТЯХ</h1>
+</div>
+<div class="social_media">
+  <div class="single_media">
+    <img src="{% static 'images/instagram_icon.png' %}" />
+    <a href="https://www.instagram.com/gensetmachinery">@gensetmachinery</a>
+  </div>
+  <div class="single_media">
+    <img src="{% static 'images/tiktok_icon.png' %}" />
+    <a href="https://www.tiktok.com/@gensetmachinery">@gensetmachinery</a>
+  </div>
+</div>
 {% endblock %}

@@ -1,50 +1,50 @@
-{% extends 'template.html' %}
-{% load static %}
-{% block seo-tag %}
-	<meta name="Аренда генераторов" content="Генераторы на заказ и в наличии. Доставка по РК. Генераторы в аренду. Контакты, адрес, социальные сети. Гибкие условия аренды.">
-{% endblock %}
-{% block content %}
-    <link rel="stylesheet" href="{% static 'css/rent.css' %}">
-    <div class="beginning">
-        <div class="big_text">
-            <h1>АРЕНДА</h1>
-            <h1>ГЕНЕРАТОРОВ</h1>
-            <h2>БЫСТРО, ВЫГОДНО И БЕЗОПАСНО</h2>
-        </div>
-        <div class="button_red" onclick="location.href='/contacts'">
-            <p>Связаться с нами</p>
-        </div>
-    </div>
+{% extends 'template.html' %} {% load static %} {% block seo-tag %}
+<meta
+  name="Аренда генераторов"
+  content="Генераторы на заказ и в наличии. Доставка по РК. Генераторы в аренду. Контакты, адрес, социальные сети. Гибкие условия аренды."
+/>
+{% endblock %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/rent.css' %}" />
+<div class="beginning">
+  <div class="big_text">
+    <h1>АРЕНДА</h1>
+    <h1>ГЕНЕРАТОРОВ</h1>
+    <h2>БЫСТРО, ВЫГОДНО И БЕЗОПАСНО</h2>
+  </div>
+  <div class="button_red" onclick="location.href='/contacts'">
+    <p>Связаться с нами</p>
+  </div>
+</div>
 
-    <div class="transparent_header">
-        <h2>преимущества аренды</h2>
-    </div>
+<div class="transparent_header">
+  <h2>преимущества аренды</h2>
+</div>
 
-    <div class="rent_advantages">
-        <div class="single_advantage" style="margin-top: 8%">
-            <img src="{% static 'images/money_icon.png' %}" alt="money">
-            <h1>НЕТ НЕОБХОДИМОСТИ ПОКУПАТЬ ОБОРУДОВАНИЕ</h1>
-        </div>
-        <div class="single_advantage">
-            <img src="{% static 'images/fix_icon.png' %}" alt="fix">
-            <h1>МЫ ПРОИЗВОДИМ УСТАНОВКУ, РЕМОНТ И ТЕХ. ОБСЛУЖИВАНИЕ</h1>
-        </div>
-        <div class="single_advantage" style="margin-top: 8%">
-            <img src="{% static 'images/time_icon.png' %}" alt="time">
-            <h1>В СЛУЧАЕ ПОЛОМКИ, ЗАМЕНИМ ГЕНЕРАТОР ВО ИЗБЕЖАНИЕ ПРОСТОЯ РАБОТЫ</h1>
-        </div>
-    </div>
+<div class="rent_advantages">
+  <div class="single_advantage" style="margin-top: 8%">
+    <img src="{% static 'images/money_icon.png' %}" alt="money" />
+    <h1>НЕТ НЕОБХОДИМОСТИ ПОКУПАТЬ ОБОРУДОВАНИЕ</h1>
+  </div>
+  <div class="single_advantage">
+    <img src="{% static 'images/fix_icon.png' %}" alt="fix" />
+    <h1>МЫ ПРОИЗВОДИМ УСТАНОВКУ, РЕМОНТ И ТЕХ. ОБСЛУЖИВАНИЕ</h1>
+  </div>
+  <div class="single_advantage" style="margin-top: 8%">
+    <img src="{% static 'images/time_icon.png' %}" alt="time" />
+    <h1>В СЛУЧАЕ ПОЛОМКИ, ЗАМЕНИМ ГЕНЕРАТОР ВО ИЗБЕЖАНИЕ ПРОСТОЯ РАБОТЫ</h1>
+  </div>
+</div>
 
-    <div class="rent_stock_container">
-        <h1>В НАЛИЧИИ ГЕНЕРАТОРЫ РАЗЛИЧНЫХ МОЩНОСТЕЙ ОТ 25 ДО 1000кВА</h1>
-        <div class="rent_container">
-            {% for rent in rent_generators %}
-                <div class="single_rent_item">
-                    <img src="{{ rent.image.url }}" alt="rent">
-                    <h2>{{ rent.title }}</h2>
-                    <h3>от {{ rent.price }} тг/сутки</h3>
-                </div>
-            {% endfor %}
-        </div>
+<div class="rent_stock_container">
+  <h1>В НАЛИЧИИ ГЕНЕРАТОРЫ РАЗЛИЧНЫХ МОЩНОСТЕЙ ОТ 25 ДО 1000кВА</h1>
+  <div class="rent_container">
+    {% for rent in rent_generators %}
+    <div class="single_rent_item">
+      <img src="{{ rent.image.url }}" alt="rent" />
+      <h2>{{ rent.title }}</h2>
+      <h3>от {{ rent.price }} тг/сутки</h3>
     </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

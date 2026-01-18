@@ -1,89 +1,130 @@
+import math
+
+import requests
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import *
 
 
 def main_page(request):
-    generators = GeneratorsRent.objects.all()
+    generators_categories = GeneratorCategory.objects.all()
     clients = Client.objects.all()
-    projects = Project.objects.all()
-
-    context = {
-        "generators": generators,
-        "clients": clients,
-        "projects": projects,
-    }
-    return render(request, "main_page.html", context)
+    projects_list = Project.objects.all()[:3]
+    return render(
+        request,
+        "main_page.html",
+        {
+            "categories": generators_categories,
+            "clients": clients,
+            "projects": projects_list,
+        },
+    )
 
 
 def about_company(request):
-    about_data = AboutUsNumbers.objects.first()
-    return render(request, "about_company.html", {"about": about_data})
+    generators_categories = GeneratorCategory.objects.all()
+    clients = Client.objects.all()
+    about_numbers = AboutUsNumbers.objects.first()
+    return render(
+        request,
+        "about_company.html",
+        {
+            "categories": generators_categories,
+            "clients": clients,
+            "about_numbers": about_numbers,
+        },
+    )
 
 
 def generators(request):
-    # Загружаем категории И генераторы
-    categories = GeneratorCategory.objects.all()
-    generators_list = Generator.objects.all()
-
+    generators_categories = GeneratorCategory.objects.all()
+    alternators = Alternator.objects.all()
+    dollar_course = get_price_KZT()
     return render(
         request,
         "generators.html",
         {
-            "categories": categories,
-            "generators": generators_list,
+            "categories": generators_categories,
+            "alternators": alternators,
+            "course": dollar_course,
         },
     )
 
 
 def generator_description(request, gen_id):
-    try:
-        generator = Generator.objects.get(id=gen_id)
-        engine = Engine.objects.filter(generator=generator).first()
-        alternator = Alternator.objects.filter(generator=generator).first()
-        parameters = GeneratorParameters.objects.filter(generator=generator).first()
-        images = GeneratorImage.objects.filter(generator=generator)
-
-        context = {
+    generators_categories = GeneratorCategory.objects.all()
+    generator = Generator.objects.get(id=gen_id)
+    images = GeneratorImage.objects.filter(generator_id=gen_id)
+    engine = Engine.objects.get(generator_id=gen_id)
+    alternator = Alternator.objects.get(generator_id=gen_id)
+    generator_parameters = GeneratorParameters.objects.get(generator_id=gen_id)
+    dollar_course = get_price_KZT()
+    return render(
+        request,
+        "generator_description.html",
+        {
+            "categories": generators_categories,
             "generator": generator,
+            "images": images,
             "engine": engine,
             "alternator": alternator,
-            "parameters": parameters,
-            "images": images,
-        }
-        return render(request, "generator_description.html", context)
-    except Generator.DoesNotExist:
-        return HttpResponse("Generator not found", status=404)
+            "params": generator_parameters,
+            "range": range(len(images)),
+            "course": dollar_course,
+        },
+    )
 
 
 def rent(request):
+    generators_categories = GeneratorCategory.objects.all()
     rent_generators = GeneratorsRent.objects.all()
-    return render(request, "rent.html", {"rent_generators": rent_generators})
+    return render(
+        request,
+        "rent.html",
+        {"categories": generators_categories, "rent_generators": rent_generators},
+    )
 
 
 def projects(request):
-    projects_list = Project.objects.all()
-    return render(request, "projects.html", {"projects": projects_list})
+    generators_categories = GeneratorCategory.objects.all()
+    projects2 = Project.objects.all()
+    return render(
+        request,
+        "projects.html",
+        {"categories": generators_categories, "projects": projects2},
+    )
 
 
 def contacts(request):
-    return render(request, "contacts.html")
+    generators_categories = GeneratorCategory.objects.all()
+    return render(request, "contacts.html", {"categories": generators_categories})
+
+
+def get_price_KZT():
+    url = "https://currency-exchange.p.rapidapi.com/exchange"
+
+    querystring = {"from": "USD", "to": "KZT", "q": "1.0"}
+
+    headers = {
+        "X-RapidAPI-Key": "16d1315cf5msheaa92765cffe447p1f31b5jsnbdf27d45f845",
+        "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com",
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    exchange_rate = float(response.text)
+
+    return math.ceil(exchange_rate)
 
 
 def generators_category(request, category_id):
-    try:
-        category = GeneratorCategory.objects.get(id=category_id)
-        generators_list = Generator.objects.filter(category=category)
-        categories = GeneratorCategory.objects.all()
-
-        return render(
-            request,
-            "generators.html",
-            {
-                "generators": generators_list,
-                "categories": categories,
-                "current_category": category,
-            },
-        )
-    except GeneratorCategory.DoesNotExist:
-        return HttpResponse("Category not found", status=404)
+    generators_categories = GeneratorCategory.objects.all()
+    alternators = Alternator.objects.filter(generator__category_id=category_id)
+    dollar_course = get_price_KZT()
+    return render(
+        request,
+        "generators.html",
+        {
+            "categories": generators_categories,
+            "alternators": alternators,
+            "course": dollar_course,
+        },
+    )
