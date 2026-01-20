@@ -165,28 +165,91 @@ body {
 }
 .floating-whatsapp {
   position: fixed;
-  left: 20px;
-  bottom: 20px;
+  left: 15px;
+  bottom: 15px;
   z-index: 999;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
+  background-color: rgba(76, 175, 80, 0.85);
+  transition: all 0.3s ease;
   text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .floating-whatsapp:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(56, 142, 60, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transform: scale(1.1);
 }
 
 .floating-whatsapp img {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
+}
+
+/* Mobile - Extra small screens (< 375px) */
+@media (max-width: 374px) {
+  .floating-whatsapp {
+    width: 45px;
+    height: 45px;
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .floating-whatsapp img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Mobile - Small screens (375px - 600px) */
+@media (min-width: 375px) and (max-width: 600px) {
+  .floating-whatsapp {
+    width: 50px;
+    height: 50px;
+    left: 12px;
+    bottom: 12px;
+  }
+
+  .floating-whatsapp img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Tablet - Medium screens (601px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .floating-whatsapp {
+    width: 55px;
+    height: 55px;
+    left: 18px;
+    bottom: 18px;
+  }
+
+  .floating-whatsapp img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Desktop - Large screens (> 900px) */
+@media (min-width: 901px) {
+  .floating-whatsapp {
+    width: 60px;
+    height: 60px;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .floating-whatsapp img {
+    width: 35px;
+    height: 35px;
+  }
 }
 @media (max-width: 650px) {
   .logo_container {
