@@ -1,0 +1,62 @@
+.transparent_header {
+    width: 100%;
+    margin-block: 2%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.transparent_header h1 {
+    width: 100%;
+    font-family: SFProDisplay-Bold, sans-serif;
+    text-transform: uppercase;
+    font-size: 8vw;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 185, 0, 1);
+    margin: 0;
+}
+
+.transparent_header h2 {
+    width: 100%;
+    font-family: SFProDisplay-Bold, sans-serif;
+    text-transform: uppercase;
+    font-size: 7vw;
+    color: rgba(255, 185, 0, 1);
+    margin: 0;
+}
+
+.projects_flexbox {
+    width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.single_project {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    object-fit: contain;
+    margin-inline: 5%;
+}
+
+.single_project p {
+    font-family: SFProDisplay-Medium, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+.single_project img {
+    border: 4px solid rgba(255, 185, 0, 1);
+}
+
+@media (max-width: 650px) {
+    .single_project p {
+        font-size: 1.6vw;
+    }
+
+    .single_project img {
+        border: 2px solid rgba(255, 185, 0, 1);
+    }
+}

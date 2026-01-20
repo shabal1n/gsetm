@@ -125,16 +125,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-PROJECT_ROOT = Path(os.path.dirname(os.path.abspath(__name__))).parent
-
 STATIC_URL = "/static/"
-# STATICFILES_DIRS = (
-#                 os.path.join(PROJECT_ROOT, 'ROOT', 'admin_static'),
-# )
 
+# Новые пути для локальной разработки (DEBUG=True)
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+# MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA_URL = "/media/"
+
+# Старые пути для production (закомментировано)
+PROJECT_ROOT = Path(os.path.dirname(os.path.abspath(__name__))).parent
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "ROOT", "static")
-
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "webroot/ROOT", "media_upload")
 
