@@ -159,9 +159,19 @@ body {
 }
 
 .phone-number {
-  color: #991616;
-  text-decoration: none;
+  color: #991616 !important;
+  text-decoration: none !important;
   cursor: default;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-decoration-skip-ink: auto;
+  pointer-events: none;
+}
+
+.phone-number:link,
+.phone-number:visited,
+.phone-number:active {
+  color: #991616 !important;
+  text-decoration: none !important;
 }
 .floating-whatsapp {
   position: fixed;
