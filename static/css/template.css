@@ -20,15 +20,17 @@ body {
 
 #loader {
   position: fixed;
-  width: 30vw;
-  height: 30vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 2000;
   overflow: visible;
   background-color: #ffffff;
   background-image: url("../images/genset_machinery_loader.gif");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain;
+  background-size: 40vmin;
 }
 
 .header {
@@ -190,9 +192,7 @@ body {
   border-radius: 0;
   text-decoration: none;
   box-shadow: none;
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .floating-whatsapp:hover {
