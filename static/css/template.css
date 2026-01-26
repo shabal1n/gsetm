@@ -24,8 +24,11 @@ body {
   height: 100vh;
   z-index: 2000;
   overflow: visible;
-  background: #e3e3e3 url("../images/load_animation.gif") no-repeat center
-    center;
+  background-color: #ffffff;
+  background-image: url("../images/genset_machinery_loader.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
 .header {
