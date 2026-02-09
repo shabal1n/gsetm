@@ -1,8 +1,13 @@
 import math
+import logging
 
 import requests
 from django.shortcuts import render
 from .models import *
+
+logger = logging.getLogger(__name__)
+
+USD_KZT_FALLBACK_RATE = 500
 
 
 def main_page(request):
@@ -109,10 +114,18 @@ def get_price_KZT():
         "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com",
     }
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    exchange_rate = float(response.text)
-
-    return math.ceil(exchange_rate)
+    try:
+        response = requests.get(url, headers=headers, params=querystring, timeout=5)
+        response.raise_for_status()
+        exchange_rate = float(response.text.strip())
+        return math.ceil(exchange_rate)
+    except (requests.RequestException, ValueError) as exc:
+        logger.warning(
+            "USD/KZT exchange API failed, using fallback rate %s. Error: %s",
+            USD_KZT_FALLBACK_RATE,
+            exc,
+        )
+        return USD_KZT_FALLBACK_RATE
 
 
 def generators_category(request, category_id):
