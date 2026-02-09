@@ -28,7 +28,7 @@ CSRF_TRUSTED_ORIGINS = [
 SECRET_KEY = "django-insecure-ftidn9@h37(cg(9ly+w6(^^0@gd96uv(7h@0zvl&x%=t&&wg#z"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "gsetm.kz",
