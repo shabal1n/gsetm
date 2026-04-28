@@ -1,6 +1,42 @@
-/.idea/
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+
+# Virtual environment
+venv/
+env/
+.env/
+.venv/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Django
+db.sqlite3
+*.sqlite3
+/staticfiles/
+/media/
 /app/migrations/
-.git
-gsetm/__pycache__
-app/__pycache__
-app/utils/__pycache__
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/

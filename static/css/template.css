@@ -164,7 +164,7 @@ body {
 }
 
 .phone-number {
-  color: #991616 !important;
+  color: #FFB900 !important;
   text-decoration: none !important;
   cursor: default;
   -webkit-tap-highlight-color: transparent;
@@ -175,7 +175,7 @@ body {
 .phone-number:link,
 .phone-number:visited,
 .phone-number:active {
-  color: #991616 !important;
+  color: #FFB900 !important;
   text-decoration: none !important;
 }
 /* WhatsApp floating action button styled as a bare icon */
